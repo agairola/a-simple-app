@@ -28,7 +28,7 @@ phases:
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       - aws sts get-caller-identity
       - echo $EKS_CLUSTER_NAME
-      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
+      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --role-arn arn:aws:iam::467454475743:role/eksctl-selfmanagedworkernodesclus-NodeInstanceRole-1LIS2PTNA72UT
       - aws-iam-authenticator help
       - kubectl get svc
       - kubectl apply -f hello-k8s.yml
